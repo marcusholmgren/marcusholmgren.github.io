@@ -13,6 +13,9 @@ const nextConfig = {
       allowFutureImage: true,
     },
   },
+  images: {
+    unoptimized: true,
+  },
 }
 
 const withMDX = nextMDX({
