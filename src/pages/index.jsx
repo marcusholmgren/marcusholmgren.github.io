@@ -12,7 +12,7 @@ import {
   LinkedInIcon,
 } from '@/components/SocialIcons'
 import image1 from '@/images/photos/marcus_vinter.jpg'
-import image2 from '@/images/photos/Marcus_Fantomen_Jättelång-2012.JPG'
+import image2 from '@/images/photos/marcus-fantomen-2012.jpg'
 import image3 from '@/images/photos/marcus-vinter-2.jpg'
 import image4 from '@/images/photos/marcus-fjäll-1.jpg'
 import image5 from '@/images/photos/marcus-fjäll-2.jpg'

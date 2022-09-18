@@ -9,7 +9,7 @@ import {
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/marcus_sum50.jpg'
+import portraitImage from '@/images/marcus-sum50.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
