@@ -1,4 +1,4 @@
-[![Deploy Next.js site to Pages](https://github.com/marcusholmgren/marcusholmgren.github.io/actions/workflows/nextjs.yml/badge.svg)](https://github.com/marcusholmgren/marcusholmgren.github.io/actions/workflows/nextjs.yml)
+[![Deploy Next.js site to Pages](https://github.com/marcusholmgren/marcusholmgren.github.io/actions/workflows/pages.yml/badge.svg)](https://github.com/marcusholmgren/marcusholmgren.github.io/actions/workflows/pages.yml)
 
 # Spotlight
 
