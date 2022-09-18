@@ -1,0 +1,42 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Marcus Holmgren',
+  date: '2022-09-18',
+  title: 'Deploy Tailwind UI Spotlight template on GitHub Pages',
+  description:
+    'How to deploy a Tailwind UI Spotlight template with GitHub Actions on GitHub Pages',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+[GitHub Pages got a refresh](https://youtube.com/shorts/Kq28yBigDYw?feature=share) and now have built in support for deploying several of the most popular static site generators, like NextJS.
+Since I´m using Tailwind UI´s [Spotlight](https://tailwindui.com/templates/spotlight) template for this blog. I thought I would setup a GitHub Action that would handle the build and publication of this blog. Easy peasy, right?
+Well, not quite. One problem is that the Spotlight template uses [MDX](https://mdxjs.com) to render articles. Default Next.js does not know how to handle MDX files.
+
+## How to fix it
+
+Open your GitHub Actions workflow file and uncomment or remove the `Setup Pages` step. Because it will break the build and the MDX support.
+
+```yaml
+- name: Setup Pages
+  uses: actions/configure-pages@v2
+  with:
+      # Automatically inject basePath in your Next.js configuration file and disable
+      # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+      #
+      # You may remove this line if you want to manage the configuration yourself.
+      static_site_generator: next
+```
+
+Next you need to open `next.config.mjs` and turn of the `images` optimization. Because GitHub Pages does not have support to run this feature
+
+```js
+{...,
+  images: {
+    unoptimized: true,
+  },
+}
+```
+
+After these changes the GitHub Actions should build and deploy your site.  🎉
