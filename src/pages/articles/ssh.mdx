@@ -1,0 +1,53 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Marcus Holmgren',
+  date: '2022-12-11',
+  title: 'Collection of useful SSH commands',
+  description:
+    'Helpful SSH commands for managing your server and connecting to it.',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+## Create cryptographically strong SSH key
+
+Create a new pair of public and private SSH keys
+
+```bash
+ssh-keygen
+```
+
+Next open up your public SSH key and change the last section to a memorable name. The last part is treated as a comment.
+
+```bash
+code ~/.ssh/id_rsa.pub
+```
+
+---
+
+## Copy SSH key to a server
+
+Copy your public SSH key to a remote server for authentication
+
+```bash
+ssh-copy-id root@<ip-address>
+```
+
+Next enter the password for the account that you are adding SSH authentication to.
+After this you should be able to authenticate to the server without providing a password.
+
+
+## SSH into a remote machine
+
+
+```bash
+ssh -p <port-number> -i <path-to-ssh-keys> root@<ip-address>
+```
+
+
+Running a one off command on the remote machine
+
+```bash
+ssh root@<ip-address> hostname
+```
