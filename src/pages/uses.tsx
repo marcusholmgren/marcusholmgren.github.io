@@ -1,10 +1,11 @@
 import Head from 'next/head'
 
-import { Card } from '@/components/Card'
-import { Section } from '@/components/Section'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { Card } from '../components/cards'
+import { Section } from '../components/Section'
+import { SimpleLayout } from '../components/SimpleLayout'
+import {PropsWithChildren} from "react";
 
-function ToolsSection({ children, ...props }) {
+function ToolsSection({ children, ...props }: PropsWithChildren<{title: string}>) {
   return (
     <Section {...props}>
       <ul role="list" className="space-y-16">
@@ -14,7 +15,8 @@ function ToolsSection({ children, ...props }) {
   )
 }
 
-function Tool({ title, href, children }) {
+
+function Tool({ title, href, children }: PropsWithChildren<{ title: string, href?: string }>) {
   return (
     <Card as="li">
       <Card.Title as="h3" href={href}>

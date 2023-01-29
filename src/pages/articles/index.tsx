@@ -1,9 +1,9 @@
 import Head from 'next/head'
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
+import {Card} from '../../components/cards'
+import { SimpleLayout } from '../../components/SimpleLayout'
+import { getAllArticles } from '../../lib/getAllArticles'
+import { formatDate } from '../../lib/formatDate'
 
 function Article({ article }) {
   return (
@@ -12,8 +12,7 @@ function Article({ article }) {
         <Card.Title href={`/articles/${article.slug}`}>
           {article.title}
         </Card.Title>
-        <Card.Eyebrow
-          as="time"
+        <Card.Eyebrow as="time"
           dateTime={article.date}
           className="md:hidden"
           decorate
@@ -23,8 +22,7 @@ function Article({ article }) {
         <Card.Description>{article.description}</Card.Description>
         <Card.Cta>Read article</Card.Cta>
       </Card>
-      <Card.Eyebrow
-        as="time"
+      <Card.Eyebrow as="time"
         dateTime={article.date}
         className="mt-1 hidden md:block"
       >
