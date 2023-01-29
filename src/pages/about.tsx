@@ -3,15 +3,16 @@ import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { Container } from '@/components/Container'
+import { Container } from '../components/containers'
 import {
   TwitterIcon,
   GitHubIcon,
   LinkedInIcon,
-} from '@/components/SocialIcons'
-import portraitImage from '@/images/marcus-sum50.jpg'
+} from '../components/SocialIcons'
+import portraitImage from '../images/marcus-sum50.jpg'
+import {ComponentPropsWithoutRef, PropsWithChildren} from "react";
 
-function SocialLink({ className, href, children, icon: Icon }) {
+function SocialLink({ className, href, children, icon: Icon }: PropsWithChildren<{ className?: string, href: string, icon: React.FC<{ className?: string }> }>) {
   return (
     <li className={clsx(className, 'flex')}>
       <Link
@@ -25,7 +26,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
   )
 }
 
-function MailIcon(props) {
+function MailIcon(props: ComponentPropsWithoutRef<any>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -46,13 +47,14 @@ export default function About() {
           content="I’m Marcus Holmgren. I design and build software"
         />
       </Head>
+      { /* @ts-ignore */}
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
                 src={portraitImage}
-                alt=""
+                alt="Marcus Holmgren portrait"
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />

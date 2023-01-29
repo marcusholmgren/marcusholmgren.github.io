@@ -4,11 +4,19 @@ import { useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Container } from '@/components/Container'
-import avatarImage from '@/images/marcus.jpg'
-import { Fragment, useEffect, useRef } from 'react'
+import { Container } from './containers'
+import avatarImage from '../images/marcus.jpg'
+import {
+  ComponentPropsWithoutRef,
+  CSSProperties,
+  Fragment,
+  PropsWithChildren,
+  PropsWithoutRef,
+  useEffect,
+  useRef
+} from 'react'
 
-function CloseIcon(props) {
+function CloseIcon(props: ComponentPropsWithoutRef<any>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -23,7 +31,7 @@ function CloseIcon(props) {
   )
 }
 
-function ChevronDownIcon(props) {
+function ChevronDownIcon(props: ComponentPropsWithoutRef<any>) {
   return (
     <svg viewBox="0 0 8 6" aria-hidden="true" {...props}>
       <path
@@ -37,7 +45,7 @@ function ChevronDownIcon(props) {
   )
 }
 
-function SunIcon(props) {
+function SunIcon(props: ComponentPropsWithoutRef<any>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -56,7 +64,7 @@ function SunIcon(props) {
   )
 }
 
-function MoonIcon(props) {
+function MoonIcon(props: ComponentPropsWithoutRef<any>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -69,7 +77,10 @@ function MoonIcon(props) {
   )
 }
 
-function MobileNavItem({ href, children }) {
+type MobileNavItemProps = {
+  href: string
+}
+function MobileNavItem({ href, children }: PropsWithChildren<MobileNavItemProps>) {
   return (
     <li>
       <Popover.Button as={Link} href={href} className="block py-2">
@@ -79,7 +90,7 @@ function MobileNavItem({ href, children }) {
   )
 }
 
-function MobileNavigation(props) {
+function MobileNavigation(props: ComponentPropsWithoutRef<any>) {
   return (
     <Popover {...props}>
       <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
@@ -135,7 +146,7 @@ function MobileNavigation(props) {
   )
 }
 
-function NavItem({ href, children }) {
+function NavItem({ href, children }: PropsWithChildren<{ href: string }>) {
   let isActive = useRouter().pathname === href
 
   return (
@@ -158,7 +169,7 @@ function NavItem({ href, children }) {
   )
 }
 
-function DesktopNavigation(props) {
+function DesktopNavigation(props: ComponentPropsWithoutRef<any>) {
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
@@ -213,7 +224,11 @@ function clamp(number, a, b) {
   return Math.min(Math.max(number, min), max)
 }
 
-function AvatarContainer({ className, ...props }) {
+type AvatarContainerProps = {
+    className?: string
+    style?: CSSProperties
+}
+function AvatarContainer({ className, ...props }: PropsWithChildren<AvatarContainerProps>) {
   return (
     <div
       className={clsx(
@@ -225,7 +240,12 @@ function AvatarContainer({ className, ...props }) {
   )
 }
 
-function Avatar({ large = false, className, ...props }) {
+type AvatarProps = {
+    large?: boolean
+    className?: string
+  style?: CSSProperties
+}
+function Avatar({ large = false, className, ...props }: PropsWithoutRef<AvatarProps>) {
   return (
     <Link
       href="/"
@@ -255,6 +275,7 @@ export function Header() {
   let isInitial = useRef(true)
 
   useEffect(() => {
+    // @ts-ignore
     let downDelay = avatarRef.current?.offsetTop ?? 0
     let upDelay = 64
 
@@ -263,6 +284,7 @@ export function Header() {
     }
 
     function updateHeaderStyles() {
+      // @ts-ignore
       let { top, height } = headerRef.current.getBoundingClientRect()
       let scrollY = clamp(
         window.scrollY,
@@ -331,11 +353,13 @@ export function Header() {
     window.addEventListener('resize', updateStyles)
 
     return () => {
+      // @ts-ignore
       window.removeEventListener('scroll', updateStyles, { passive: true })
       window.removeEventListener('resize', updateStyles)
     }
   }, [isHomePage])
 
+  // @ts-ignore
   return (
     <>
       <header
@@ -351,8 +375,10 @@ export function Header() {
               ref={avatarRef}
               className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
             />
+            { /* @ts-ignore */}
             <Container
               className="top-0 order-last -mb-3 pt-3"
+              // @ts-ignore
               style={{ position: 'var(--header-position)' }}
             >
               <div className="relative">
@@ -375,8 +401,10 @@ export function Header() {
         <div
           ref={headerRef}
           className="top-0 z-10 pt-6"
+          // @ts-ignore
           style={{ position: 'var(--header-position)' }}
         >
+          { /* @ts-ignore */}
           <Container>
             <div className="relative flex gap-4">
               <div className="flex flex-1">

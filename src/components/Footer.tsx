@@ -1,8 +1,12 @@
 import Link from 'next/link'
 
-import { Container } from '@/components/Container'
+import { OuterContainer, InnerContainer } from './containers'
+import {PropsWithChildren} from "react";
 
-function NavLink({ href, children }) {
+type NavLinkProps = {
+  href: string
+}
+function NavLink({ href, children }: PropsWithChildren<NavLinkProps>) {
   return (
     <Link
       href={href}
@@ -16,9 +20,11 @@ function NavLink({ href, children }) {
 export function Footer() {
   return (
     <footer className="mt-32">
-      <Container.Outer>
+      { /* @ts-ignore */}
+      <OuterContainer>
         <div className="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
-          <Container.Inner>
+          { /* @ts-ignore */}
+          <InnerContainer>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <NavLink href="/about">About</NavLink>
@@ -31,9 +37,9 @@ export function Footer() {
                 reserved.
               </p>
             </div>
-          </Container.Inner>
+          </InnerContainer>
         </div>
-      </Container.Outer>
+      </OuterContainer>
     </footer>
   )
 }

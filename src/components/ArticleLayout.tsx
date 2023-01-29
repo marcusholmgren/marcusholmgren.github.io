@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
-import { Container } from '@/components/Container'
-import { formatDate } from '@/lib/formatDate'
-import { Prose } from '@/components/Prose'
+import { Container } from './containers'
+import { formatDate } from '../lib/formatDate'
+import { Prose } from './Prose'
+import {PropsWithChildren} from "react";
 
 function ArrowLeftIcon(props) {
   return (
@@ -18,13 +19,24 @@ function ArrowLeftIcon(props) {
   )
 }
 
+type Meta = {
+  author: string
+  date: string
+  title: string
+  description: string
+}
+
+type ArticleLayoutProps = {
+  meta: Meta
+  isRssFeed: boolean,
+  previousPathname: string,
+}
 export function ArticleLayout({
   children,
   meta,
   isRssFeed = false,
   previousPathname,
-}) {
-  let router = useRouter()
+}: PropsWithChildren<ArticleLayoutProps>) {
 
   if (isRssFeed) {
     return children
@@ -36,18 +48,17 @@ export function ArticleLayout({
         <title>{`${meta.title} - Marcus Holmgren`}</title>
         <meta name="description" content={meta.description} />
       </Head>
+      { /* @ts-ignore */ }
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
             {previousPathname && (
-              <button
-                type="button"
-                onClick={() => router.back()}
-                aria-label="Go back to articles"
+                <Link href="/articles"
+                      aria-label="Go back to articles"
                 className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:left-0 xl:mt-0"
-              >
-                <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
-              </button>
+                >
+                  <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
+                </Link>
             )}
             <article>
               <header className="flex flex-col">

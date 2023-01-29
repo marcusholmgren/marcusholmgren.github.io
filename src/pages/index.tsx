@@ -1,27 +1,28 @@
-import Image from 'next/image'
+import Image, {StaticImageData} from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
-import { Container } from '@/components/Container'
+import { Button } from '../components/Button'
+import { Card } from '../components/cards'
+import { Container } from '../components/containers'
 import {
   TwitterIcon,
   GitHubIcon,
   LinkedInIcon,
-} from '@/components/SocialIcons'
-import image1 from '@/images/photos/marcus_vinter.jpg'
-import image2 from '@/images/photos/marcus-fantomen-2012.jpg'
-import image3 from '@/images/photos/marcus-vinter-2.jpg'
-import image4 from '@/images/photos/marcus-fjäll-1.jpg'
-import image5 from '@/images/photos/marcus-fjäll-2.jpg'
-import logoIf from '@/images/logos/if-logo.svg'
-import logoYacero from '@/images/logos/yacero-logo.png'
-import logoMedius from '@/images/logos/Medius_Logo.svg'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
+} from '../components/SocialIcons'
+import image1 from '../images/photos/marcus_vinter.jpg'
+import image2 from '../images/photos/marcus-fantomen-2012.jpg'
+import image3 from '../images/photos/marcus-vinter-2.jpg'
+import image4 from '../images/photos/marcus-fjäll-1.jpg'
+import image5 from '../images/photos/marcus-fjäll-2.jpg'
+import logoIf from '../images/logos/if-logo.svg'
+import logoYacero from '../images/logos/yacero-logo.png'
+import logoMedius from '../images/logos/Medius_Logo.svg'
+import { generateRssFeed } from '../lib/generateRssFeed'
+import { getAllArticles } from '../lib/getAllArticles'
+import { formatDate } from '../lib/formatDate'
+import React, { ComponentPropsWithoutRef } from "react";
 
 function MailIcon(props) {
   return (
@@ -84,7 +85,7 @@ function ArrowDownIcon(props) {
 
 function Article({ article }) {
   return (
-    <Card as="article">
+    <Card as={"article"}>
       <Card.Title href={`/articles/${article.slug}`}>
         {article.title}
       </Card.Title>
@@ -97,8 +98,12 @@ function Article({ article }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
+type SocialLinkProps = ComponentPropsWithoutRef<"a"> & {
+    icon: React.FunctionComponent<any>;
+}
+function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
   return (
+      // @ts-ignore
     <Link className="group -m-1 p-1" {...props}>
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
@@ -134,17 +139,24 @@ function Newsletter() {
   )
 }
 
+type ResumeType = {
+  company: string;
+  title: string;
+  logo: StaticImageData;
+  start: string;
+  end?: string;
+  endLabel?: string;
+}
+
 function Resume() {
-  let resume = [
+  let resume: ResumeType[] = [
     {
       company: 'Yacero',
       title: 'Consultant',
       logo: logoYacero,
       start: '2017',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
+      endLabel: 'Present',
+      end: new Date().getFullYear().toString(),
     },
     {
       company: 'If Insurance',
@@ -193,16 +205,16 @@ function Resume() {
               <dt className="sr-only">Date</dt>
               <dd
                 className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
+                aria-label={`${role.start} until ${
+                  role.endLabel ?? role.end
                 }`}
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
+                <time dateTime={role.start}>
+                  {role.start}
                 </time>{' '}
                 <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
+                <time dateTime={role.end}>
+                  {role.endLabel ?? role.end}
                 </time>
               </dd>
             </dl>
@@ -256,6 +268,7 @@ export default function Home({ articles }) {
           content="👋 I’m Marcus, a software developer and machine learning tinkerer based in Stockholm, Sweden. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
         />
       </Head>
+      { /* @ts-ignore */ }
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -285,6 +298,7 @@ export default function Home({ articles }) {
         </div>
       </Container>
       <Photos />
+      { /* @ts-ignore */ }
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
