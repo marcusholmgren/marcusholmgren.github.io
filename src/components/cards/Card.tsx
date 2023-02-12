@@ -20,7 +20,7 @@ type CardProps = {
     className?: string
 }
 
-export function Card({as = "div", className, children}: PropsWithChildren<CardProps>) {
+function CardRoot({as = "div", className, children}: PropsWithChildren<CardProps>) {
     switch (as) {
         case 'div':
             return (
@@ -50,7 +50,7 @@ export function Card({as = "div", className, children}: PropsWithChildren<CardPr
 }
 
 
-Card.Link = function CardLink({children, ...props}: PropsWithChildren<{ href: string }>) {
+function CardLink({children, ...props}: PropsWithChildren<{ href: string }>) {
     return (
         <>
             <div
@@ -69,42 +69,42 @@ type CardTitleProps = {
     href?: string
 }
 
-Card.Title = function CardTitle({as = "h2", href, children}: PropsWithChildren<CardTitleProps>) {
+function Title({as = "h2", href, children}: PropsWithChildren<CardTitleProps>) {
     switch (as) {
         case 'h1':
             return (
                 <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+                    {href ? <CardLink href={href}>{children}</CardLink> : children}
                 </h2>
             )
         case 'h2':
             return (
                 <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+                    {href ? <CardLink href={href}>{children}</CardLink> : children}
                 </h2>
             )
         case 'h3':
             return (
                 <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+                    {href ? <CardLink href={href}>{children}</CardLink> : children}
                 </h2>
             )
         case 'h4':
             return (
                 <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+                    {href ? <CardLink href={href}>{children}</CardLink> : children}
                 </h2>
             )
         case 'h5':
             return (
                 <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+                    {href ? <CardLink href={href}>{children}</CardLink> : children}
                 </h2>
             )
         case 'h6':
             return (
                 <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+                    {href ? <CardLink href={href}>{children}</CardLink> : children}
                 </h2>
             )
 
@@ -112,12 +112,12 @@ Card.Title = function CardTitle({as = "h2", href, children}: PropsWithChildren<C
     }
     return (
         <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-            {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+            {href ? <CardLink href={href}>{children}</CardLink> : children}
         </h2>
     )
 }
 
-Card.Description = function CardDescription({children}: PropsWithChildren<{}>) {
+function Description({children}: PropsWithChildren<{}>) {
     return (
         <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
             {children}
@@ -126,7 +126,7 @@ Card.Description = function CardDescription({children}: PropsWithChildren<{}>) {
 }
 
 
-Card.Cta = function CardCta({children}: PropsWithChildren<{}>) {
+function Cta({children}: PropsWithChildren<{}>) {
     return (
         <div
             aria-hidden="true"
@@ -145,7 +145,7 @@ type CardEyebrowProps = {
     className?: string
 }
 
-Card.Eyebrow = function CardEyebrow({
+function Eyebrow({
                                         as = 'p',
                                         decorate = false,
                                         className,
@@ -197,3 +197,6 @@ Card.Eyebrow = function CardEyebrow({
     )
     }
 }
+
+
+export let Card = Object.assign(CardRoot, {Title, Description, Cta, Eyebrow, CardLink})

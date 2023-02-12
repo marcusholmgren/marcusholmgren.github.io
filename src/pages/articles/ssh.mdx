@@ -51,3 +51,20 @@ Running a one off command on the remote machine
 ```bash
 ssh root@<ip-address> hostname
 ```
+
+ ## SSH config
+
+ Simplify connections with SSH config files
+
+ Add `~/.ssh/config` file
+
+ ```bash
+ Host foo
+     HostName 127.0.0.1
+     User root
+     IdentityFile ~/.ssh/id_rsa
+     Port 22
+ ```
+
+ Now you can SSH with `ssh foo` and that will use your configured values.
+
