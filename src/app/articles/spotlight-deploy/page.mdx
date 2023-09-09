@@ -1,7 +1,5 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 
-
-
 export const article = {
   author: 'Marcus Holmgren',
   date: '2022-09-18',
@@ -15,9 +13,13 @@ export const metadata = {
   description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default function SpotlightDeployArticle(props) {
+    return (
+        <ArticleLayout article={article} {...props} />
+    )
+}
 
-export const dynamic = 'dynamic force';
+export const dynamic = 'force-static';
 
 [GitHub Pages got a refresh](https://youtube.com/shorts/Kq28yBigDYw?feature=share) and now have built in support for deploying several of the most popular static site generators, like NextJS.
 Since I´m using Tailwind UI´s [Spotlight](https://tailwindui.com/templates/spotlight) template for this blog. I thought I would setup a GitHub Action that would handle the build and publication of this blog. Easy peasy, right?

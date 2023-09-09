@@ -13,9 +13,13 @@ export const metadata = {
   description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default function SshArticle(props) {
+    return (
+        <ArticleLayout article={article} {...props} />
+    )
+}
 
-export const dynamic = 'dynamic force';
+export const dynamic = 'force-static';
 
 ## Create cryptographically strong SSH key
 
