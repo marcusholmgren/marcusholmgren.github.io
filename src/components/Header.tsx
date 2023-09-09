@@ -1,22 +1,17 @@
+'use client'
+
+import { Fragment, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Container } from './containers'
-import avatarImage from '../images/marcus.jpg'
-import {
-  ComponentPropsWithoutRef,
-  CSSProperties,
-  Fragment,
-  PropsWithChildren,
-  PropsWithoutRef,
-  useEffect,
-  useRef
-} from 'react'
+import { Container } from '@/components/Container'
+import avatarImage from '@/images/marcus.jpg'
 
-function CloseIcon(props: ComponentPropsWithoutRef<any>) {
+function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -31,7 +26,7 @@ function CloseIcon(props: ComponentPropsWithoutRef<any>) {
   )
 }
 
-function ChevronDownIcon(props: ComponentPropsWithoutRef<any>) {
+function ChevronDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 8 6" aria-hidden="true" {...props}>
       <path
@@ -45,7 +40,7 @@ function ChevronDownIcon(props: ComponentPropsWithoutRef<any>) {
   )
 }
 
-function SunIcon(props: ComponentPropsWithoutRef<any>) {
+function SunIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -64,7 +59,7 @@ function SunIcon(props: ComponentPropsWithoutRef<any>) {
   )
 }
 
-function MoonIcon(props: ComponentPropsWithoutRef<any>) {
+function MoonIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -77,10 +72,13 @@ function MoonIcon(props: ComponentPropsWithoutRef<any>) {
   )
 }
 
-type MobileNavItemProps = {
+function MobileNavItem({
+  href,
+  children,
+}: {
   href: string
-}
-function MobileNavItem({ href, children }: PropsWithChildren<MobileNavItemProps>) {
+  children: React.ReactNode
+}) {
   return (
     <li>
       <Popover.Button as={Link} href={href} className="block py-2">
@@ -90,7 +88,9 @@ function MobileNavItem({ href, children }: PropsWithChildren<MobileNavItemProps>
   )
 }
 
-function MobileNavigation(props: ComponentPropsWithoutRef<any>) {
+function MobileNavigation(
+  props: React.ComponentPropsWithoutRef<typeof Popover>,
+) {
   return (
     <Popover {...props}>
       <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
@@ -146,8 +146,14 @@ function MobileNavigation(props: ComponentPropsWithoutRef<any>) {
   )
 }
 
-function NavItem({ href, children }: PropsWithChildren<{ href: string }>) {
-  let isActive = useRouter().pathname === href
+function NavItem({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  let isActive = usePathname() === href
 
   return (
     <li>
@@ -157,7 +163,7 @@ function NavItem({ href, children }: PropsWithChildren<{ href: string }>) {
           'relative block px-3 py-2 transition',
           isActive
             ? 'text-teal-500 dark:text-teal-400'
-            : 'hover:text-teal-500 dark:hover:text-teal-400'
+            : 'hover:text-teal-500 dark:hover:text-teal-400',
         )}
       >
         {children}
@@ -169,7 +175,7 @@ function NavItem({ href, children }: PropsWithChildren<{ href: string }>) {
   )
 }
 
-function DesktopNavigation(props: ComponentPropsWithoutRef<any>) {
+function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
@@ -183,34 +189,21 @@ function DesktopNavigation(props: ComponentPropsWithoutRef<any>) {
   )
 }
 
-function ModeToggle() {
-  function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
-    }, 0)
-  }
+function ThemeToggle() {
+  let { resolvedTheme, setTheme } = useTheme()
+  let otherTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
+  let [mounted, setMounted] = useState(false)
 
-  function toggleMode() {
-    disableTransitionsTemporarily()
-
-    let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    let isSystemDarkMode = darkModeMediaQuery.matches
-    let isDarkMode = document.documentElement.classList.toggle('dark')
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode
-    } else {
-      window.localStorage.isDarkMode = isDarkMode
-    }
-  }
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <button
       type="button"
-      aria-label="Toggle dark mode"
+      aria-label={mounted ? `Switch to ${otherTheme} theme` : 'Toggle theme'}
       className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-      onClick={toggleMode}
+      onClick={() => setTheme(otherTheme)}
     >
       <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
       <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
@@ -218,34 +211,34 @@ function ModeToggle() {
   )
 }
 
-function clamp(number, a, b) {
+function clamp(number: number, a: number, b: number) {
   let min = Math.min(a, b)
   let max = Math.max(a, b)
   return Math.min(Math.max(number, min), max)
 }
 
-type AvatarContainerProps = {
-    className?: string
-    style?: CSSProperties
-}
-function AvatarContainer({ className, ...props }: PropsWithChildren<AvatarContainerProps>) {
+function AvatarContainer({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <div
       className={clsx(
         className,
-        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10'
+        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10',
       )}
       {...props}
     />
   )
 }
 
-type AvatarProps = {
-    large?: boolean
-    className?: string
-  style?: CSSProperties
-}
-function Avatar({ large = false, className, ...props }: PropsWithoutRef<AvatarProps>) {
+function Avatar({
+  large = false,
+  className,
+  ...props
+}: Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> & {
+  large?: boolean
+}) {
   return (
     <Link
       href="/"
@@ -259,7 +252,7 @@ function Avatar({ large = false, className, ...props }: PropsWithoutRef<AvatarPr
         sizes={large ? '4rem' : '2.25rem'}
         className={clsx(
           'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
-          large ? 'h-16 w-16' : 'h-9 w-9'
+          large ? 'h-16 w-16' : 'h-9 w-9',
         )}
         priority
       />
@@ -268,28 +261,34 @@ function Avatar({ large = false, className, ...props }: PropsWithoutRef<AvatarPr
 }
 
 export function Header() {
-  let isHomePage = useRouter().pathname === '/'
+  let isHomePage = usePathname() === '/'
 
-  let headerRef = useRef()
-  let avatarRef = useRef()
+  let headerRef = useRef<React.ElementRef<'div'>>(null)
+  let avatarRef = useRef<React.ElementRef<'div'>>(null)
   let isInitial = useRef(true)
 
   useEffect(() => {
-    // @ts-ignore
     let downDelay = avatarRef.current?.offsetTop ?? 0
     let upDelay = 64
 
-    function setProperty(property, value) {
+    function setProperty(property: string, value: string) {
       document.documentElement.style.setProperty(property, value)
     }
 
+    function removeProperty(property: string) {
+      document.documentElement.style.removeProperty(property)
+    }
+
     function updateHeaderStyles() {
-      // @ts-ignore
+      if (!headerRef.current) {
+        return
+      }
+
       let { top, height } = headerRef.current.getBoundingClientRect()
       let scrollY = clamp(
         window.scrollY,
         0,
-        document.body.scrollHeight - window.innerHeight
+        document.body.scrollHeight - window.innerHeight,
       )
 
       if (isInitial.current) {
@@ -308,6 +307,16 @@ export function Header() {
       } else if (top === 0) {
         setProperty('--header-height', `${scrollY + height}px`)
         setProperty('--header-mb', `${-scrollY}px`)
+      }
+
+      if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
+        setProperty('--header-inner-position', 'fixed')
+        removeProperty('--header-top')
+        removeProperty('--avatar-top')
+      } else {
+        removeProperty('--header-inner-position')
+        setProperty('--header-top', '0px')
+        setProperty('--avatar-top', '0px')
       }
     }
 
@@ -331,7 +340,7 @@ export function Header() {
 
       setProperty(
         '--avatar-image-transform',
-        `translate3d(${x}rem, 0, 0) scale(${scale})`
+        `translate3d(${x}rem, 0, 0) scale(${scale})`,
       )
 
       let borderScale = 1 / (toScale / scale)
@@ -339,7 +348,7 @@ export function Header() {
       let borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`
 
       setProperty('--avatar-border-transform', borderTransform)
-      setProperty('--avatar-border-opacity', scale === toScale ? 1 : 0)
+      setProperty('--avatar-border-opacity', scale === toScale ? '1' : '0')
     }
 
     function updateStyles() {
@@ -353,17 +362,15 @@ export function Header() {
     window.addEventListener('resize', updateStyles)
 
     return () => {
-      // @ts-ignore
-      window.removeEventListener('scroll', updateStyles, { passive: true })
+      window.removeEventListener('scroll', updateStyles)
       window.removeEventListener('resize', updateStyles)
     }
   }, [isHomePage])
 
-  // @ts-ignore
   return (
     <>
       <header
-        className="pointer-events-none relative z-50 flex flex-col"
+        className="pointer-events-none relative z-50 flex flex-none flex-col"
         style={{
           height: 'var(--header-height)',
           marginBottom: 'var(--header-mb)',
@@ -375,37 +382,53 @@ export function Header() {
               ref={avatarRef}
               className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
             />
-            { /* @ts-ignore */}
             <Container
               className="top-0 order-last -mb-3 pt-3"
-              // @ts-ignore
-              style={{ position: 'var(--header-position)' }}
+              style={{
+                position:
+                  'var(--header-position)' as React.CSSProperties['position'],
+              }}
             >
-              <div className="relative">
-                <AvatarContainer
-                  className="absolute left-0 top-3 origin-left transition-opacity"
-                  style={{
-                    opacity: 'var(--avatar-border-opacity, 0)',
-                    transform: 'var(--avatar-border-transform)',
-                  }}
-                />
-                <Avatar
-                  large
-                  className="block h-16 w-16 origin-left"
-                  style={{ transform: 'var(--avatar-image-transform)' }}
-                />
+              <div
+                className="top-[var(--avatar-top,theme(spacing.3))] w-full"
+                style={{
+                  position:
+                    'var(--header-inner-position)' as React.CSSProperties['position'],
+                }}
+              >
+                <div className="relative">
+                  <AvatarContainer
+                    className="absolute left-0 top-3 origin-left transition-opacity"
+                    style={{
+                      opacity: 'var(--avatar-border-opacity, 0)',
+                      transform: 'var(--avatar-border-transform)',
+                    }}
+                  />
+                  <Avatar
+                    large
+                    className="block h-16 w-16 origin-left"
+                    style={{ transform: 'var(--avatar-image-transform)' }}
+                  />
+                </div>
               </div>
             </Container>
           </>
         )}
         <div
           ref={headerRef}
-          className="top-0 z-10 pt-6"
-          // @ts-ignore
-          style={{ position: 'var(--header-position)' }}
+          className="top-0 z-10 h-16 pt-6"
+          style={{
+            position:
+              'var(--header-position)' as React.CSSProperties['position'],
+          }}
         >
-          { /* @ts-ignore */}
-          <Container>
+          <Container
+            className="top-[var(--header-top,theme(spacing.6))] w-full"
+            style={{
+              position:
+                'var(--header-inner-position)' as React.CSSProperties['position'],
+            }}
+          >
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 {!isHomePage && (
@@ -420,14 +443,19 @@ export function Header() {
               </div>
               <div className="flex justify-end md:flex-1">
                 <div className="pointer-events-auto">
-                  <ModeToggle />
+                  <ThemeToggle />
                 </div>
               </div>
             </div>
           </Container>
         </div>
       </header>
-      {isHomePage && <div style={{ height: 'var(--content-offset)' }} />}
+      {isHomePage && (
+        <div
+          className="flex-none"
+          style={{ height: 'var(--content-offset)' }}
+        />
+      )}
     </>
   )
 }

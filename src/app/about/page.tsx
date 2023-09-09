@@ -1,15 +1,15 @@
+import { type Metadata } from 'next'
 import Image from 'next/image'
-import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { Container } from '../components/containers'
+import { Container } from '@/components/Container'
 import {
   TwitterIcon,
   GitHubIcon,
   LinkedInIcon,
-} from '../components/SocialIcons'
-import portraitImage from '../images/marcus-sum50.jpg'
+} from  '@/components/SocialIcons'
+import portraitImage from '@/images/marcus-sum50.jpg'
 import {ComponentPropsWithoutRef, PropsWithChildren} from "react";
 
 function SocialLink({ className, href, children, icon: Icon }: PropsWithChildren<{ className?: string, href: string, icon: React.FC<{ className?: string }> }>) {
@@ -39,15 +39,6 @@ function MailIcon(props: ComponentPropsWithoutRef<any>) {
 
 export default function About() {
   return (
-    <>
-      <Head>
-        <title>About - Marcus Holmgren</title>
-        <meta
-          name="description"
-          content="I’m Marcus Holmgren. I design and build software"
-        />
-      </Head>
-      { /* @ts-ignore */}
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">
@@ -110,7 +101,6 @@ export default function About() {
             </ul>
           </div>
         </div>
-      </Container>
-    </>
+        </Container>
   )
 }
