@@ -1,6 +1,6 @@
-import { ArticleLayout } from '../../components/ArticleLayout'
+import { ArticleLayout } from '@/components/ArticleLayout'
 
-export const meta = {
+export const article = {
   author: 'Marcus Holmgren',
   date: '2022-12-11',
   title: 'Collection of useful SSH commands',
@@ -8,7 +8,14 @@ export const meta = {
     'Helpful SSH commands for managing your server and connecting to it.',
 }
 
-export default (props) => <ArticleLayout meta={meta} {...props} />
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+export const dynamic = 'dynamic force';
 
 ## Create cryptographically strong SSH key
 
