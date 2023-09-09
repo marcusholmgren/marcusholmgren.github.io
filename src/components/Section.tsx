@@ -1,6 +1,12 @@
-import {PropsWithChildren, useId} from 'react'
+import { useId } from 'react'
 
-export function Section({ title, children }: PropsWithChildren<{ title: string }>) {
+export function Section({
+  title,
+  children,
+}: {
+  title: string
+  children: React.ReactNode
+}) {
   let id = useId()
 
   return (
