@@ -5,17 +5,7 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
-/*
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
- */
+import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
 
 import image1 from '@/images/photos/marcus_vinter.jpg'
 import image2 from '@/images/photos/marcus-fantomen-2012.jpg'
@@ -23,13 +13,12 @@ import image3 from '@/images/photos/marcus-vinter-2.jpg'
 import image4 from '@/images/photos/marcus-fjäll-1.jpg'
 import image5 from '@/images/photos/marcus-fjäll-2.jpg'
 
-
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
-import React from "react";
-import logoIf from "@/images/logos/if-logo.svg";
-import logoMedius from "@/images/logos/Medius_Logo.svg";
-import logoYacero from "@/images/logos/yacero-logo.png";
+import React from 'react'
+import logoIf from '@/images/logos/if-logo.svg'
+import logoMedius from '@/images/logos/Medius_Logo.svg'
+import logoYacero from '@/images/logos/yacero-logo.png'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -192,7 +181,6 @@ function Role({ role }: { role: Role }) {
   )
 }
 
-
 function Resume() {
   let resume: Array<Role> = [
     {
@@ -202,7 +190,7 @@ function Resume() {
       start: '2017',
       end: {
         label: 'Present',
-         dateTime: new Date().getFullYear().toString(),
+        dateTime: new Date().getFullYear().toString(),
       },
     },
     {
@@ -239,15 +227,13 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-{/*      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      {/*      <Button href="#" variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>*/}
     </div>
   )
 }
-
-
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
@@ -276,7 +262,6 @@ function Photos() {
   )
 }
 
-
 export default async function Home() {
   let articles = (await getAllArticles()).slice(0, 4)
 
@@ -288,8 +273,10 @@ export default async function Home() {
             Professional software builder and amateur data scientist.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Marcus, a curious soul and lifelong learner. I build software for a living and have a passion for machine learning and data science.
-            I grew up in the norther part of Sweden and love to spend my free time outdoors, preferably in the mountains.
+            I’m Marcus, a curious soul and lifelong learner. I build software
+            for a living and have a passion for machine learning and data
+            science. I grew up in the norther part of Sweden and love to spend
+            my free time outdoors, preferably in the mountains.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

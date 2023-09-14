@@ -14,12 +14,10 @@ export const metadata = {
 }
 
 export default function SpotlightDeployArticle(props) {
-    return (
-        <ArticleLayout article={article} {...props} />
-    )
+  return <ArticleLayout article={article} {...props} />
 }
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-static'
 
 [GitHub Pages got a refresh](https://youtube.com/shorts/Kq28yBigDYw?feature=share) and now have built in support for deploying several of the most popular static site generators, like NextJS.
 Since I´m using Tailwind UI´s [Spotlight](https://tailwindui.com/templates/spotlight) template for this blog. I thought I would setup a GitHub Action that would handle the build and publication of this blog. Easy peasy, right?
@@ -33,11 +31,11 @@ Open your GitHub Actions workflow file and uncomment or remove the `Setup Pages`
 - name: Setup Pages
   uses: actions/configure-pages@v2
   with:
-      # Automatically inject basePath in your Next.js configuration file and disable
-      # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-      #
-      # You may remove this line if you want to manage the configuration yourself.
-      static_site_generator: next
+    # Automatically inject basePath in your Next.js configuration file and disable
+    # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+    #
+    # You may remove this line if you want to manage the configuration yourself.
+    static_site_generator: next
 ```
 
 Next you need to open `next.config.mjs` and turn of the `images` optimization. Because GitHub Pages does not have support to run this feature
@@ -50,4 +48,4 @@ Next you need to open `next.config.mjs` and turn of the `images` optimization. B
 }
 ```
 
-After these changes the GitHub Actions should build and deploy your site.  🎉
+After these changes the GitHub Actions should build and deploy your site. 🎉

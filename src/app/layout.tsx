@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'Marcus Holmgren - Professional software builder and amateur data scientist',
   },
   description:
-   '👋 I’m Marcus, a software developer and machine learning tinkerer based in Stockholm, Sweden.',
+    '👋 I’m Marcus, a software developer and machine learning tinkerer based in Stockholm, Sweden.',
 }
 
 export default function RootLayout({

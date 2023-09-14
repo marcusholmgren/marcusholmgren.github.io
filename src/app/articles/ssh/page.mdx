@@ -14,12 +14,10 @@ export const metadata = {
 }
 
 export default function SshArticle(props) {
-    return (
-        <ArticleLayout article={article} {...props} />
-    )
+  return <ArticleLayout article={article} {...props} />
 }
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-static'
 
 ## Create cryptographically strong SSH key
 
@@ -48,14 +46,11 @@ ssh-copy-id root@<ip-address>
 Next enter the password for the account that you are adding SSH authentication to.
 After this you should be able to authenticate to the server without providing a password.
 
-
 ## SSH into a remote machine
-
 
 ```bash
 ssh -p <port-number> -i <path-to-ssh-keys> root@<ip-address>
 ```
-
 
 Running a one off command on the remote machine
 
@@ -63,19 +58,18 @@ Running a one off command on the remote machine
 ssh root@<ip-address> hostname
 ```
 
- ## SSH config
+## SSH config
 
- Simplify connections with SSH config files
+Simplify connections with SSH config files
 
- Add `~/.ssh/config` file
+Add `~/.ssh/config` file
 
- ```bash
- Host foo
-     HostName 127.0.0.1
-     User root
-     IdentityFile ~/.ssh/id_rsa
-     Port 22
- ```
+```bash
+Host foo
+    HostName 127.0.0.1
+    User root
+    IdentityFile ~/.ssh/id_rsa
+    Port 22
+```
 
- Now you can SSH with `ssh foo` and that will use your configured values.
-
+Now you can SSH with `ssh foo` and that will use your configured values.
