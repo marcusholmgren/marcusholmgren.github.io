@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"./{src,content}/**/*.{js,jsx,ts,tsx}\""
   },
-  "browserslist": ["defaults", "not ie <= 11"],
+  "browserslist": [
+    "defaults",
+    "not ie <= 11"
+  ],
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@mapbox/rehype-prism": "^0.9.0",
@@ -29,7 +33,7 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "@types/node": "20.11.5",
+    "@types/node": "20.11.6",
     "@types/react": "^18.2.48",
     "@types/react-dom": "18.2.18",
     "@types/webpack-env": "^1.18.4",
