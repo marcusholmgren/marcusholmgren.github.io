@@ -7,6 +7,8 @@ import { Container } from '@/components/Container'
 import { TwitterIcon, GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import portraitImage from '@/images/marcus-sum50.jpg'
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
+import awsCertifiedDeveloper from './aws-certified-developer-associate.png'
+import dataCampDataScientist from './data_scientist_professional_badge.png'
 
 function SocialLink({
   className,
@@ -96,6 +98,11 @@ export default function About() {
               explore the field of machine learning and deep learning. Because I
               believe that it will be a big part of the future of computing.
             </p>
+            <p>
+              In the summer and autumn 2023 I pursued and got certified as an
+              AWS Developer.
+              <AwsCertifiedDeveloper />
+            </p>
           </div>
         </div>
         <div className="lg:pl-20">
@@ -128,8 +135,45 @@ export default function About() {
               marcus.holmgren1@gmail.com
             </SocialLink>
           </ul>
+          <DataCampDataScientist />
         </div>
       </div>
     </Container>
+  )
+}
+
+function AwsCertifiedDeveloper() {
+  return (
+    <a
+      href="https://www.credly.com/badges/08b4a129-3da6-4a51-8a4a-ae9356d777db/public_url"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image
+        src={awsCertifiedDeveloper}
+        alt="AWS Certified Developer Associate"
+        className="mt-8"
+        width="600"
+        height="600"
+      />
+    </a>
+  )
+}
+
+function DataCampDataScientist() {
+  return (
+    <a
+      href="https://www.datacamp.com/portfolio/marcusholmgren"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image
+        src={dataCampDataScientist}
+        alt="DataCamp Professional Data Scientist Certificate"
+        className="mt-8"
+        width="186"
+        height="215"
+      />
+    </a>
   )
 }

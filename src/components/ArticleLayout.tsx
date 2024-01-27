@@ -22,7 +22,7 @@ function ArrowLeftIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-export function ArticleLayout({
+export default function ArticleLayout({
   article,
   children,
 }: {
