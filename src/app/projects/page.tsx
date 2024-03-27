@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
+      title="Code flows lika a stream, Mastering front and back-end, Seasoned artisan."
       intro="Driven by a passion for learning and exploration, I've embarked on numerous side projects throughout my journey. These endeavors, ranging from programming challenges to personal applications, have served as invaluable learning experiences, allowing me to hone my skills and expand my knowledge base."
     >
       <p className="mb-6 mt-0 text-base text-zinc-600 dark:text-zinc-400">
