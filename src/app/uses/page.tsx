@@ -54,7 +54,7 @@ export default function Uses() {
           <Tool title="RustRover">
             I use RustRover for all my Rust projects. It’s a great way to
             navigate and understand large Rust codebases.
-            </Tool>
+          </Tool>
           <Tool title="GitHub Copilot">
             My AI pairing buddy. It’s fantastic to get the code suggestions that
             are context relevant. Love it.
@@ -71,7 +71,8 @@ export default function Uses() {
             quickly. And Tailwind CSS is a great way to to style things quickly.
           </Tool>
           <Tool title="Tremor">
-            I like to use Tremor for to build charts and dashboards in React apps.
+            I like to use Tremor for to build charts and dashboards in React
+            apps.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Educational platforms">

@@ -26,6 +26,15 @@ const projects: Array<Project> = [
     },
     logo: gitHubLogo,
   },
+  {
+    name: 'Dykupp',
+    description: 'Practice reading dive charts for facility divers in training. This SPA was built in the spring of 2024 with Remix and Tailwind CSS and is hosted on GitHub Pages. ',
+    link: {
+      href: 'https://yaceroconsulting.github.io/dykupp/',
+      label: 'dykupp',
+    },
+    logo: gitHubLogo,
+  },
 ]
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
