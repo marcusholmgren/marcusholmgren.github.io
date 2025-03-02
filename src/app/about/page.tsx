@@ -4,7 +4,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import { TwitterIcon, GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
+import { XIcon, GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import portraitImage from '@/images/marcus-sum50.jpg'
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 import awsCertifiedDeveloper from './aws-certified-developer-associate.png'
@@ -109,7 +109,7 @@ export default function About() {
           <ul role="list">
             <SocialLink
               href="https://twitter.com/marcusholmgren"
-              icon={TwitterIcon}
+              icon={XIcon}
             >
               Follow on Twitter
             </SocialLink>
