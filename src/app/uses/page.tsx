@@ -55,6 +55,10 @@ export default function Uses() {
             I use RustRover for all my Rust projects. It’s a great way to
             navigate and understand large Rust codebases.
           </Tool>
+           <Tool title="Zed">
+            I’m really amazed by the speed and simplicity of Zed.
+            Zed is a next-generation code editor designed for high-performance collaboration with humans and AI.
+          </Tool>
           <Tool title="GitHub Copilot">
             My AI pairing buddy. It’s fantastic to get the code suggestions that
             are context relevant. Love it.
@@ -85,20 +89,17 @@ export default function Uses() {
             science. The hosted notebooks are great when you don’t want to
             install or setup anything on your local machine.
           </Tool>
-          <Tool title="Egghead">
-            Is my go to choice for picking up new web development skills. It’s
-            high-quality video tutorials and curated learning resources with
-            zero cruft.
-          </Tool>
           <Tool title="Brilliant">
             I have found it to be a great resource for learning about math and
             science during commute.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Productivity">
-          <Tool title="Wolfram Alpha">
-            I use Wolfram Alpha for all kinds of calculations. It’s a great tool
-            for doing quick calculations and conversions.
+          <Tool title="Gemini Pro">
+            I use Gemini Pro for brainstorming, writing, and coding. It’s
+            incredibly useful for generating ideas, writing content, and
+            debugging code. I use it in the browser, but also in the
+            JetBrains IDEs.
           </Tool>
         </ToolsSection>
       </div>
