@@ -34,8 +34,8 @@ function Tool({
 export default function Uses() {
   return (
     <SimpleLayout
-      title="Software I use, gadgets I love, and other things I recommend."
-      intro="I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating. Here’s a big list of all of my favorite stuff."
+      title="Tools I use and things I recommend."
+intro="A curated list of the software, gadgets, and services I rely on for building applications, staying productive, and exploring new ideas. Everything here is essential to my workflow."
     >
       <div className="space-y-20">
         <ToolsSection title="Workstation">
@@ -89,6 +89,10 @@ export default function Uses() {
             science. The hosted notebooks are great when you don’t want to
             install or setup anything on your local machine.
           </Tool>
+            <Tool title="Maven">
+            I have participated in a few courses on Maven and I
+            have found them to be of high quality. In early summer of 2024 the course <span className="font-semibold text-purple-700 dark:text-purple-400">Mastering LLMs For Developers & Data Scientists</span> included so many guest lectures that is became a conference in itself.
+          </Tool>
           <Tool title="Brilliant">
             I have found it to be a great resource for learning about math and
             science during commute.
@@ -100,6 +104,9 @@ export default function Uses() {
             incredibly useful for generating ideas, writing content, and
             debugging code. I use it in the browser, but also in the
             JetBrains IDEs.
+          </Tool>
+            <Tool title="Jules">
+            This AI agent is a great way to get help with coding tasks. I have used it to help me write features and tests and it works great where it pushes changes to GitHub.
           </Tool>
         </ToolsSection>
       </div>

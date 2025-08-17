@@ -270,13 +270,15 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Professional software builder and amateur data scientist.
+            Building the future with code and curiosity.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Marcus, a curious soul and lifelong learner. I build software
-            for a living and have a passion for machine learning and data
-            science. I grew up in the norther part of Sweden and love to spend
-            my free time outdoors, preferably in the mountains.
+            👋 I&apos;m Marcus, a software builder and aspiring data scientist based in Stockholm.
+            I craft digital solutions with
+            <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mx-1 px-2.5 py-0.5 rounded border border-blue-200 align-middle">Python</span>,
+            <span className="inline-block bg-orange-100 text-orange-800 text-xs font-semibold mx-1 px-2.5 py-0.5 rounded border border-orange-200 align-middle">Rust</span>, and
+            <span className="inline-block bg-green-100 text-green-800 text-xs font-semibold mx-1 px-2.5 py-0.5 rounded border border-green-200 align-middle">TypeScript</span>,
+            always exploring what&apos;s next in the world of <span className="font-semibold text-purple-700 dark:text-purple-400">AI</span> and <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span>.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

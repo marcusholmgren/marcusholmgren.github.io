@@ -60,47 +60,17 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            I’m Marcus Holmgren. I design and build software.
+            I&apos;m Marcus Holmgren. I build for the future of computing.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              My interests in computers started when my dad bought a Commodore
-              64 in 1985 and I did my first attempt to programming by type in
-              BASIC printouts from magazines. Honestly, most of the time was
-              used to play and trade games with friends.
+              My interest in software began with a Commodore 64 in 1985, typing my first lines of <span className="font-semibold text-purple-700 dark:text-purple-400">BASIC</span> from magazines. This early curiosity laid the groundwork for my career, paralleling a lifelong passion for physical challenges. Just as I learned to navigate trails and complete ultra marathons, I’ve found a similar drive in exploring new technical fields.
             </p>
             <p>
-              Much of my childhood was spent with my family were we would go on
-              snowmobile trips, boat trips, fishing, and camping. In the late
-              80’s I discovered snowboarding and that was it. I was hooked. I
-              spent most of my free time on the slopes. After a snowboarding
-              injury in the middle of the 90’s I transition more into running
-              and learned that I enjoy cross country running more than asphalt
-              running. Several years later that led me to start to explore trail
-              running and I wondered if I could run a ultra marathon? After
-              completing a couple of 50km, and 68km events I have discovered
-              that I don’t need to be signed up for a race to motivate myself to
-              train. I train so that I know can spend a day on the trail when
-              the weather is right.
+                In 2016, I dove headfirst into <span className="font-semibold text-purple-700 dark:text-purple-400">Deep Learning</span> through a nanodegree program, which cemented my fascination with data and intelligent systems. I had little experience at the time, but the experience solidified my belief in the future of <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span>.
             </p>
             <p>
-              By chance in december 2016 I saw that Udacity would start a
-              nanodegree program on Deep Learning. I was fascinated by the
-              projects that we would be building during the program so I signed
-              up. I had little to no experience in machine learning and deep
-              learning. But after spending nearly six months studying and
-              building projects I had a good understanding of the basics of deep
-              learning.
-            </p>
-            <p>
-              Today, I do consulting work for companies that need help with
-              building and deploying their systems. I intend to continue to
-              explore the field of machine learning and deep learning. Because I
-              believe that it will be a big part of the future of computing.
-            </p>
-            <p>
-              In the summer and autumn 2023 I pursued and got certified as an
-              AWS Developer.
+                Today, I work as a consultant, designing and building robust systems for companies. My work is focused on creating practical solutions while I continue to explore and expand my knowledge in areas like <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span> and cloud technologies. I believe these fields will be a massive part of the future of computing, and I&apos;m excited to be a part of it.
               <AwsCertifiedDeveloper />
             </p>
           </div>
