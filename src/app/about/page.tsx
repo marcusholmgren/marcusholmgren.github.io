@@ -64,13 +64,13 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              My interest in software began with a Commodore 64 in 1985, typing my first lines of <span className="font-semibold text-purple-700 dark:text-purple-400">BASIC</span> from magazines. This early curiosity laid the groundwork for my career, paralleling a lifelong passion for physical challenges. Just as I learned to navigate trails and complete ultra marathons, I’ve found a similar drive in exploring new technical fields.
+              My journey into technology began in 1985 with a Commodore 64, where I typed my first lines of <span className="font-semibold text-purple-700 dark:text-purple-400">BASIC</span> from magazines. This early spark of curiosity grew into a career, fueled by the same passion that drives me in my physical pursuits. Much like navigating trails and completing ultra-marathons, I thrive on the challenge of exploring and mastering new technical landscapes.
             </p>
             <p>
-                In 2016, I dove headfirst into <span className="font-semibold text-purple-700 dark:text-purple-400">Deep Learning</span> through a nanodegree program, which cemented my fascination with data and intelligent systems. I had little experience at the time, but the experience solidified my belief in the future of <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span>.
+                In 2016, I immersed myself in <span className="font-semibold text-purple-700 dark:text-purple-400">Deep Learning</span> through a nanodegree program. This experience ignited my fascination with data and intelligent systems, solidifying my conviction in the future of <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span>.
             </p>
             <p>
-                Today, I work as a consultant, designing and building robust systems for companies. My work is focused on creating practical solutions while I continue to explore and expand my knowledge in areas like <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span> and cloud technologies. I believe these fields will be a massive part of the future of computing, and I&apos;m excited to be a part of it.
+                As a consultant, I now design and build robust systems that solve real-world problems. I am constantly expanding my expertise in <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span> and cloud technologies—fields I see as pivotal to the future of computing. I am thrilled to be contributing to this evolution and shaping the technology of tomorrow.
               <AwsCertifiedDeveloper />
             </p>
           </div>
