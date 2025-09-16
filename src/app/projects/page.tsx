@@ -46,6 +46,33 @@ const projects: Array<Project> = [
     },
     logo: gitHubLogo,
   },
+        {
+        name: 'Fast Celery 💨',
+        description: 'A simple booking system built as a FastAPI application that uses Celery for background task processing to manage bookings. It uses Redis as a message broker and a SQLite database for persistence.',
+        link: {
+            href: 'https://github.com/marcusholmgren/fast-celery',
+            label: 'fast-celery',
+        },
+        logo: gitHubLogo,
+    },
+    {
+        name: 'COMTRADE inspector 🧐',
+        description: 'Svelte application that uses a rust WASM library that parses Common Format for Transient Data Exchange (COMTRADE).',
+        link: {
+            href: 'https://github.com/marcusholmgren/comtrade-inspector',
+            label: 'comtrade-inspector',
+        },
+        logo: gitHubLogo,
+    },
+    {
+        name: 'N-Gram Text Generation',
+        description: 'A simple N-gram text generation model implemented in Python. It generates text based on the frequency of word sequences in a given corpus.',
+        link: {
+            href: 'https://github.com/marcusholmgren/predictive-prose',
+            label: 'predictive-prose',
+        },
+        logo: gitHubLogo,
+    },
   {
     name: 'Math Practice',
     description:
