@@ -155,8 +155,13 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7 rounded-full bg-white" unoptimized />
+      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+        <Image
+          src={role.logo}
+          alt=""
+          className="h-7 w-7 rounded-full bg-white"
+          unoptimized
+        />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
@@ -269,16 +274,32 @@ export default async function Home() {
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             Building the future with code and curiosity.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            👋 I&apos;m Marcus, a software builder and aspiring data scientist based in Stockholm.
-            I craft digital solutions with
-            <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mx-1 px-2.5 py-0.5 rounded border border-blue-200 align-middle">Python</span>,
-            <span className="inline-block bg-orange-100 text-orange-800 text-xs font-semibold mx-1 px-2.5 py-0.5 rounded border border-orange-200 align-middle">Rust</span>, and
-            <span className="inline-block bg-green-100 text-green-800 text-xs font-semibold mx-1 px-2.5 py-0.5 rounded border border-green-200 align-middle">TypeScript</span>,
-            always exploring what&apos;s next in the world of <span className="font-semibold text-purple-700 dark:text-purple-400">AI</span> and <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span>.
+            👋 I&apos;m Marcus, a software builder and aspiring data scientist
+            based in Stockholm. I craft digital solutions with
+            <span className="mx-1 inline-block rounded border border-blue-200 bg-blue-100 px-2.5 py-0.5 align-middle text-xs font-semibold text-blue-800">
+              Python
+            </span>
+            ,
+            <span className="mx-1 inline-block rounded border border-orange-200 bg-orange-100 px-2.5 py-0.5 align-middle text-xs font-semibold text-orange-800">
+              Rust
+            </span>
+            , and
+            <span className="mx-1 inline-block rounded border border-green-200 bg-green-100 px-2.5 py-0.5 align-middle text-xs font-semibold text-green-800">
+              TypeScript
+            </span>
+            , always exploring what&apos;s next in the world of{' '}
+            <span className="font-semibold text-purple-700 dark:text-purple-400">
+              AI
+            </span>{' '}
+            and{' '}
+            <span className="font-semibold text-purple-700 dark:text-purple-400">
+              Machine Learning
+            </span>
+            .
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

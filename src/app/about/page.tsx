@@ -59,28 +59,51 @@ export default function About() {
           </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             I&apos;m Marcus Holmgren. I build for the future of computing.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              My journey into technology began in 1985 with a Commodore 64, where I typed my first lines of <span className="font-semibold text-purple-700 dark:text-purple-400">BASIC</span> from magazines. This early spark of curiosity grew into a career, fueled by the same passion that drives me in my physical pursuits. Much like navigating trails and completing ultra-marathons, I thrive on the challenge of exploring and mastering new technical landscapes.
+              My journey into technology began in 1985 with a Commodore 64,
+              where I typed my first lines of{' '}
+              <span className="font-semibold text-purple-700 dark:text-purple-400">
+                BASIC
+              </span>{' '}
+              from magazines. This early spark of curiosity grew into a career,
+              fueled by the same passion that drives me in my physical pursuits.
+              Much like navigating trails and completing ultra-marathons, I
+              thrive on the challenge of exploring and mastering new technical
+              landscapes.
             </p>
             <p>
-                In 2016, I immersed myself in <span className="font-semibold text-purple-700 dark:text-purple-400">Deep Learning</span> through a nanodegree program. This experience ignited my fascination with data and intelligent systems, solidifying my conviction in the future of <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span>.
+              In 2016, I immersed myself in{' '}
+              <span className="font-semibold text-purple-700 dark:text-purple-400">
+                Deep Learning
+              </span>{' '}
+              through a nanodegree program. This experience ignited my
+              fascination with data and intelligent systems, solidifying my
+              conviction in the future of{' '}
+              <span className="font-semibold text-purple-700 dark:text-purple-400">
+                Machine Learning
+              </span>
+              .
             </p>
             <p>
-                As a consultant, I now design and build robust systems that solve real-world problems. I am constantly expanding my expertise in <span className="font-semibold text-purple-700 dark:text-purple-400">Machine Learning</span> and cloud technologies—fields I see as pivotal to the future of computing. I am thrilled to be contributing to this evolution and shaping the technology of tomorrow.
+              As a consultant, I now design and build robust systems that solve
+              real-world problems. I am constantly expanding my expertise in{' '}
+              <span className="font-semibold text-purple-700 dark:text-purple-400">
+                Machine Learning
+              </span>{' '}
+              and cloud technologies—fields I see as pivotal to the future of
+              computing. I am thrilled to be contributing to this evolution and
+              shaping the technology of tomorrow.
               <AwsCertifiedDeveloper />
             </p>
           </div>
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink
-              href="https://twitter.com/marcusholmgren"
-              icon={XIcon}
-            >
+            <SocialLink href="https://twitter.com/marcusholmgren" icon={XIcon}>
               Follow on Twitter
             </SocialLink>
             <SocialLink
