@@ -21,30 +21,60 @@ export const dynamic = 'force-static'
 
 ## Create cryptographically strong SSH key
 
-Create a new pair of public and private SSH keys
+It is recommend to use the **Ed25519** algorithm, which offers better security and performance than legacy RSA keys.
 
+Generate a modern Ed25519 key with a comment
 ```bash
-ssh-keygen
+ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-Next open up your public SSH key and change the last section to a memorable name. The last part is treated as a comment.
+* **-t ed25519**: Uses the modern Ed25519 algorithm.
+* **-C "comment"**: Labels the key (e.g., your email or device name) so you can identify it easily in the public key file.
 
+*Tip: Always set a strong passphrase when prompted to protect your key in case your computer is stolen.*
+
+
+### File Permissions (Common Pitfall)
+
+A very common issue for beginners is "Unprotected private key file" errors.
+
+Set permissions on SSH folder and private key
 ```bash
-code ~/.ssh/id_rsa.pub
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_ed25519
 ```
 
 ---
 
 ## Copy SSH key to a server
 
+Logging in directly as root is generally considered a bad security practice.
+
 Copy your public SSH key to a remote server for authentication
 
 ```bash
-ssh-copy-id root@<ip-address>
+# Copy ID to a specific user (better than root)
+ssh-copy-id username@<ip-address>
 ```
 
 Next enter the password for the account that you are adding SSH authentication to.
 After this you should be able to authenticate to the server without providing a password.
+
+**Recommendation:** If you must keep root user disabling `PermitRootLogin` in the server's SSH config is a recommended next step.
+
+### Server-Side Hardening
+
+Just copying the key doesn't stop password attacks.
+
+**Add a section on `/etc/ssh/sshd_config`:**
+Once keys are working, users should edit the server config to disable password authentication entirely.
+
+```bash
+# /etc/ssh/sshd_config on the remote server
+PasswordAuthentication no
+PermitRootLogin no  # or 'prohibit-password'
+ChallengeResponseAuthentication no
+```
 
 ## SSH into a remote machine
 
@@ -60,7 +90,11 @@ ssh root@<ip-address> hostname
 
 ## SSH config
 
-Simplify connections with SSH config files
+Simplify connections with SSH config files.
+
+In your `~/.ssh/config` section, you should add `IdentitiesOnly yes`.
+Because, if a user has many keys, the SSH client will try them one by one. This can trigger "Too many authentication failures" errors and leak your public keys to the server. `IdentitiesOnly` forces SSH to use *only* the specific key file listed.
+
 
 Add `~/.ssh/config` file
 
@@ -69,6 +103,7 @@ Host foo
     HostName 127.0.0.1
     User root
     IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
     Port 22
 ```
 

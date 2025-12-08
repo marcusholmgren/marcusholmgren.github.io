@@ -40,8 +40,8 @@ export default function Uses() {
       <div className="space-y-20">
         <ToolsSection title="Workstation">
           <Tool title="Apple Studio M2 Ultra, 64GB RAM (2023)">
-            This is a new addition to my setup. The performance is incredible,
-            and it have made running local LLMs easy and fast.
+            This is my new workstation. The performance is incredible, and it
+            have made running local LLMs easy and fast.
           </Tool>
           <Tool title="16” MacBook Pro, M1 Pro, 16GB RAM (2021)">
             I was using an Intel-based 15” MacBook Pro prior to this and the
