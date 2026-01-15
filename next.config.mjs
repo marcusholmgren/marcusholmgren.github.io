@@ -10,6 +10,7 @@ const nextConfig = {
   outputFileTracingIncludes: {
     '/articles/*': ['./src/app/articles/**/*.mdx'],
   },
+  allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev'],
 }
 
 const withMDX = nextMDX({
