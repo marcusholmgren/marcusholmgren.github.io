@@ -2,7 +2,6 @@
   "name": "tailwindui-template",
   "version": "0.1.2",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -22,7 +21,7 @@
     "@next/mdx": "^15",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
-    "autoprefixer": "^10.4.23",
+    "autoprefixer": "^10.4.24",
     "cheerio": "^1.2.0",
     "clsx": "^2.1.1",
     "fast-glob": "^3.3.3",
