@@ -1,11 +1,9 @@
+import rehypePrism from '@mapbox/rehype-prism'
 import nextMDX from '@next/mdx'
+import remarkGfm from 'remark-gfm'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   outputFileTracingIncludes: {
     '/articles/*': ['./src/app/articles/**/*.mdx'],
@@ -13,9 +11,10 @@ const nextConfig = {
 }
 
 const withMDX = nextMDX({
+  extension: /\.mdx?$/,
   options: {
-    remarkPlugins: ['remark-gfm'],
-    rehypePlugins: ['@mapbox/rehype-prism'],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypePrism],
   },
 })
 

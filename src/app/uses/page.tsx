@@ -43,11 +43,11 @@ export default function Uses() {
             This is my new workstation. The performance is incredible, and it
             have made running local LLMs easy and fast.
           </Tool>
-          <Tool title="16” MacBook Pro, M1 Pro, 16GB RAM (2021)">
-            I was using an Intel-based 15” MacBook Pro prior to this and the
-            difference is night and day. I’ve never heard the fans turn on a
-            single time, even under the incredibly heavy loads I put it through
-            with our various launch simulations.
+          <Tool title="Omarchy on MacBook Pro, 16GB RAM (2017)">
+            I have revived my Intel-based 15” MacBook Pro by installing Omarchy
+            and I really like this os. There are some drawbacks, like the
+            touchbar not being supported, but overall it works really well and
+            it has given this machine a new life.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Development tools">

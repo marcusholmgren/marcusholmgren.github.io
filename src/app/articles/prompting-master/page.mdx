@@ -1,0 +1,104 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import designSystem from './Gemini_Generated_Image_i1ip2hi1ip2hi1ip.jpg'
+
+export const article = {
+  author: 'Marcus Holmgren',
+  date: '2026-01-30',
+  title: '🚀 LLM Prompting Master Template',
+  description:
+    'This is a goldmine of prompting tactics. These Anthropic-inspired techniques—especially Role Stacking and Reverse Prompting are essentially the "cheat codes" for getting high-reasoning models to actually break a sweat.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default function Page(props) {
+  return <ArticleLayout article={article} {...props} />
+}
+
+export const dynamic = 'force-static'
+
+
+*Based on Anthropic's Expert Workflows*
+
+Use this document as a guide to structure your interactions with LLMs. For complex problems, move through these stages sequentially.
+
+<Image src={designSystem} alt="" />
+
+
+## 1. The Context Layer (Memory Injection)
+
+**Goal:** Establish a permanent "vibe" and technical baseline so you don't repeat yourself.
+
+* **When to use:** At the very start of a new project or chat thread.
+* **Template:**
+
+> "You are my **[Role]**. Remember these preferences: **[Preference 1]**, **[Preference 2]**, and **[Preference 3]**. Acknowledge these and apply them to all future responses in this thread."
+
+---
+
+## 2. The Discovery Phase (Reverse Prompting)
+
+**Goal:** Prevent the AI from guessing. Force it to audit your requirements first.
+
+* **When to use:** Before you let the AI start a complex task (coding, strategy, writing).
+* **Template:**
+
+> "I need to **[Goal]**. Before you begin, ask me **[Number]** clarifying questions about my **[Dataset/Context/Outcome]**. Do not start the task until I have answered these questions."
+
+---
+
+## 3. The Multi-Expert Audit (Role Stacking)
+
+**Goal:** Eliminate bias and catch blind spots by simulating a panel of experts.
+
+* **When to use:** High-stakes decision making or analyzing a strategy.
+* **Template:**
+
+> "Analyze **[Topic/Problem]** from three perspectives simultaneously:
+> 1. **[Expert Role 1 - e.g., Critical Skeptic]**
+> 2. **[Expert Role 2 - e.g., Creative Optimist]**
+> 3. **[Expert Role 3 - e.g., Practical Implementation Lead]**
+> Show all three viewpoints and where they conflict."
+>
+>
+
+---
+
+## 4. The Execution Chain (Constraint Cascade)
+
+**Goal:** Prevent "model fatigue" by breaking the task into logical, progressive steps.
+
+* **When to use:** For long-form content, complex code, or deep research.
+* **Template:**
+
+> * **Step 1:** "First, **[Simple Task]**. Wait for my response."
+> * **Step 2:** "Now that you've done that, **[Add Complexity/Layer]**."
+> * **Step 3:** "Finally, **[Final Polish/Output Format]**."
+>
+>
+
+---
+
+## 5. The Quality Gate (Verification Loop)
+
+**Goal:** Self-correction. Force the AI to find its own mistakes before you have to.
+
+* **When to use:** For anything that requires high accuracy (math, code, logic).
+* **Template:**
+
+> "Complete **[Task]**. Once finished, identify 3 potential bugs, logical fallacies, or edge cases in your own work. Then, provide an updated version that resolves those issues."
+
+---
+
+### Summary Table for Quick Reference
+
+| Technique | Core Benefit | Best For... |
+| --- | --- | --- |
+| **Memory Injection** | Consistency | Coding & Style |
+| **Reverse Prompting** | Accuracy | Project Planning |
+| **Role Stacking** | Depth | Strategy & Reviews |
+| **Constraint Cascade** | Logic | Complex Workflows |
+| **Verification Loop** | Reliability | Debugging & Fact-checking |
