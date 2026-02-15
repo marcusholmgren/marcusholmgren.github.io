@@ -1,0 +1,44 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import probCalc from './Gemini_Generated_Image_ofd9lpofd9lpofd9.jpg'
+
+export const article = {
+  author: 'Marcus Holmgren',
+  date: '2026-02-15',
+  title: 'Ω Probability Calculation Steps',
+  description:
+    'A systematic approach for uncertain outcomes.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default function Page(props) {
+  return <ArticleLayout article={article} {...props} />
+}
+
+export const dynamic = 'force-static'
+
+
+<Image src={probCalc} alt="" />
+
+### Probability Calculation Steps
+
+1. **Specify the Sample Space (Ω):** Identify all possible outcomes of the experiment.
+2. **Specify the Probability Law:** Define the probability for each outcome or region of the sample space, ensuring the axioms are satisfied (nonnegativity, normalization, and additivity).
+3. **Identify the Event of Interest (A):** Translate the verbal description of the problem into a mathematical subset of the sample space.
+4. **Decompose or Partition (The "Missing" Step):**
+    * For **discrete** spaces: Break the event into disjoint outcomes to use **Additivity**.
+    * For **complex** events: Use **Conditioning** or the **Total Probability Theorem** to simplify the event into manageable pieces.
+    * For **continuous** spaces: Define the boundaries of the event for integration (or geometric area).
+5. **Calculate:** Sum the probabilities of the outcomes in the event or calculate the relevant integral/area.
+
+---
+
+### Why the "Decomposition" Step is Crucial
+
+When tackling probability problems, the "Decomposition" step is often the foundation for success.  It's the process of breaking down a complex situation into smaller, more manageable parts.
+
+* **Counting:** If all outcomes are equally likely, this step involves using Permutations or Combinations to find |A| and |Ω|.
+* **Sequential Models:** If the experiment has stages, you use the **Multiplication Rule** or a tree diagram to find the probability of each path before summing them.
