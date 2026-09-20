@@ -47,6 +47,16 @@ const projects: Array<Project> = [
     logo: gitHubLogo,
   },
   {
+    name: 'ZenSudoku 🧘‍♂️',
+    description:
+      'Using constraint propagation and search to solve Sudoku puzzles.',
+    link: {
+      href: 'https://github.com/marcusholmgren/zen-sudoku',
+      label: 'zen-sudoku',
+    },
+    logo: gitHubLogo,
+  },
+  {
     name: 'Fast Celery 💨',
     description:
       'A simple booking system built as a FastAPI application that uses Celery for background task processing to manage bookings. It uses Redis as a message broker and a SQLite database for persistence.',
