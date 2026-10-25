@@ -17,9 +17,28 @@ type Project = {
 
 const projects: Array<Project> = [
   {
+    name: 'Vanilla AI Agent 🤖',
+    description:
+      'A vanilla Python AI agent: a tiny retail assistant that answers questions about sales and warranty — built with no AI agent framework at all.',
+    link: {
+      href: 'https://github.com/marcusholmgren/vanilla-ai-agent',
+      label: 'vanilla-ai-agent',
+    },
+    logo: gitHubLogo,
+  },
+  {
+    name: 'Flashcard Quizzer 📝',
+    description: 'A powerful, terminal-based Flashcard Quizzer CLI designed for practicing and memorizing new concepts.',
+    link: {
+      href: 'https://github.com/marcusholmgren/flashcard-quizzer',
+      label: 'flashcard-quizzer',
+    },
+    logo: gitHubLogo,
+  },
+  {
     name: 'Stunning Octo Waffle 🧇',
     description:
-      'OpenId Connect project with a SPA that posts authenticated requests to the REST API.',
+      'OpenID Connect project with a SPA that posts authenticated requests to the REST API.',
     link: {
       href: 'https://github.com/marcusholmgren/stunning-octo-waffle',
       label: 'stunning-octo-waffle',
@@ -83,6 +102,15 @@ const projects: Array<Project> = [
     link: {
       href: 'https://github.com/marcusholmgren/predictive-prose',
       label: 'predictive-prose',
+    },
+    logo: gitHubLogo,
+  },
+  {
+    name: 'API search engine 🔍',
+    description: 'A FastAPI application using Tortoise ORM with SQLite database that implements a weighted search algorithm over an inverted index.',
+    link: {
+      href: 'https://github.com/marcusholmgren/symmetrical-train',
+      label: 'symmetrical-train',
     },
     logo: gitHubLogo,
   },
