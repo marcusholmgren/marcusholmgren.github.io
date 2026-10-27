@@ -3,6 +3,7 @@ import { type Metadata } from 'next'
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 
+import 'katex/dist/katex.min.css'
 import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
