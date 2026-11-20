@@ -17,6 +17,17 @@ type Project = {
 
 const projects: Array<Project> = [
   {
+    name: 'PII Redaction Tool 🛡️',
+    description:
+      '\n' +
+      'A client-side Svelte 5 application that detects and redacts Personally Identifiable Information (PII) using a hybrid Regex and Web Worker-based NER (Named Entity Recognition) pipeline.',
+    link: {
+      href: 'https://github.com/marcusholmgren/content-cleaner-util',
+      label: 'content-cleaner-util',
+    },
+    logo: gitHubLogo,
+  },
+  {
     name: 'Vanilla AI Agent 🤖',
     description:
       'A vanilla Python AI agent: a tiny retail assistant that answers questions about sales and warranty — built with no AI agent framework at all.',
@@ -28,7 +39,8 @@ const projects: Array<Project> = [
   },
   {
     name: 'Flashcard Quizzer 📝',
-    description: 'A powerful, terminal-based Flashcard Quizzer CLI designed for practicing and memorizing new concepts.',
+    description:
+      'A powerful, terminal-based Flashcard Quizzer CLI designed for practicing and memorizing new concepts.',
     link: {
       href: 'https://github.com/marcusholmgren/flashcard-quizzer',
       label: 'flashcard-quizzer',
@@ -107,7 +119,8 @@ const projects: Array<Project> = [
   },
   {
     name: 'API search engine 🔍',
-    description: 'A FastAPI application using Tortoise ORM with SQLite database that implements a weighted search algorithm over an inverted index.',
+    description:
+      'A FastAPI application using Tortoise ORM with SQLite database that implements a weighted search algorithm over an inverted index.',
     link: {
       href: 'https://github.com/marcusholmgren/symmetrical-train',
       label: 'symmetrical-train',
