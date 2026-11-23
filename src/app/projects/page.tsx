@@ -17,6 +17,15 @@ type Project = {
 
 const projects: Array<Project> = [
   {
+    name: 'Prompt Template Filler',
+    description: 'A simple web application that allows users to fill in prompt templates with dynamic values. It provides a user-friendly interface for creating and managing prompt templates, making it easy to generate customized prompts for various applications.',
+    link: {
+      href: 'https://github.com/marcusholmgren/prompt-fill',
+      label: 'prompt-fill',
+    },
+    logo: gitHubLogo,
+  },
+  {
     name: 'PII Redaction Tool 🛡️',
     description:
       '\n' +
